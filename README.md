@@ -9,7 +9,7 @@ You are admin at your pc to run this code.
 
 Before the specify event id you should decide what you need. You can analyze the "An account was successfully logged on" or "Special privileges assigned to new logon".. etc.
 
-screenshot: ![alt text]https://github.com/esmanurtufan/event-log-analyze/blob/master/decoder%204624.PNG
+screenshot: ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/decoder%204624.PNG)
 )
 
 

@@ -38,32 +38,32 @@ The iportant point is how can we analyze/report the output.
 
 **Analyze time!**
 
-Step.1
+*Step.1*
 
 $events=.\get_evenlog.ps1 -sunucu btbtest -log_cesidi security -zaman 5 -eventid 4672 
 
-We assing the output to variable (events). 
+We assing the output to variable ($events). 
 
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/1.PNG)
 
 
-**$events[0].Id**         : This command writes Id parameter in events id, and 
+**$events[0].Id**         : This command writes Id parameter in $events, and 
 **$events[0].Message**    : and this cammand writes Messages parameter.
 
-Step.2
+*Step.2*
 
 $mesaj=$events[0].Message
 
 We assing the $events[0].Message to variable $mesaj and split it.
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/2.PNG)
-Step.3
+*Step.3*
 
 $events|%{$_.message -split "\n" }|%{if($_ -like "*Account Name:*"){(($_ -split "\:")[1]).trim()}} 
 
 We split the events variable to messages like Account Name.
 
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/3.PNG)
-Step.4
+*Step.4*
 
 $events|%{$_.message -split "\n" }|%{if($_ -like "*Account Name:*"){(($_ -split "\:")[1]).trim()}}|Group-Object |select count,name
 

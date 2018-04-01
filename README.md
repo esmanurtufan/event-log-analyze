@@ -1,7 +1,7 @@
 This project can follow and analyze the windows event log. 
 
 In the Event Log, both the application log and the system log contain errors, warnings, and informational events that are related to the operation of Exchange Server, and other applications. To identify the cause of message flow issues, carefully review the data that is contained in the application log and system log.
-In this project, we are intered in Security Logs. We used that site to follow event log id. Event Id means: A Windows identification number that specifies the event type. 
+In this project, we are interested in Security Logs. We used that site to follow event log id. (Event Id means: A Windows identification number that specifies the event type.) 
 
 https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx 
 
@@ -13,20 +13,22 @@ You can find "security","application","setup" and "system" logs. You can choose 
 We are 2 examples of usage.
 
 ----------------------------------------------------------------------------------------------------------------------
+You are admin at your pc to run this code.
 
-**1) localhost event log**
+**1) Localhost event log**
 
-You are admin at your pc to run this code. (localhost name:omer1 & user:decoder) 
+(localhost name:omer1 & user:decoder) 
 
 ***Event id:4624***
 
 .\get_eventlog.ps1 -sunucu localhost -log_cesidi security -zaman 60 -eventid 4624
 
-Start with running code at the file path. We find event which id is 4624 (you can choose another critical id) on localhost pc. We find the logs within the specified time (parameter:zaman). We choose the time 60 min in this example.
+Start with running code in the file path. We find events which id is 4624 (you can choose another critical id) on localhost pc. We find the logs within the specified time (parameter:zaman). We choose the time 60 min in this example.
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/4624.PNG)
 
 
-***Or Event id:4672** *
+***Or Event id:4672***
+
 .\get_eventlog.ps1 -sunucu localhost -log_cesidi security -zaman 60 -eventid 4672
 
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/4672.PNG)
@@ -35,6 +37,7 @@ Start with running code at the file path. We find event which id is 4624 (you ca
 The iportant point is how can we analyze/report the output. 
 
 **Analyze time!**
+Step.1
 
 $events=.\get_evenlog.ps1 -sunucu btbtest -log_cesidi security -zaman 5 -eventid 4672 
 We assing the output to variable (events). 
@@ -42,9 +45,10 @@ We assing the output to variable (events).
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/1.PNG)
 
 
-$events[0].Id          This command writes Id parameter in events id,
-$events[0].Message      and this cammand writes Messages parameter.
+**$events[0].Id**         : This command writes Id parameter in events id,
+**$events[0].Message**    : and this cammand writes Messages parameter.
 
+Step.2
 $mesaj=$events[0].Message
 We assing the $events[0].Message to variable $mesaj and split it.
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/2.PNG)

@@ -37,27 +37,33 @@ Start with running code in the file path. We find events which id is 4624 (you c
 The iportant point is how can we analyze/report the output. 
 
 **Analyze time!**
+
 Step.1
 
 $events=.\get_evenlog.ps1 -sunucu btbtest -log_cesidi security -zaman 5 -eventid 4672 
+
 We assing the output to variable (events). 
 
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/1.PNG)
 
 
-**$events[0].Id**         : This command writes Id parameter in events id,
+**$events[0].Id**         : This command writes Id parameter in events id, and 
 **$events[0].Message**    : and this cammand writes Messages parameter.
 
 Step.2
+
 $mesaj=$events[0].Message
+
 We assing the $events[0].Message to variable $mesaj and split it.
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/2.PNG)
+Step.3
 
 $events|%{$_.message -split "\n" }|%{if($_ -like "*Account Name:*"){(($_ -split "\:")[1]).trim()}} 
 
 We split the events variable to messages like Account Name.
 
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/3.PNG)
+Step.4
 
 $events|%{$_.message -split "\n" }|%{if($_ -like "*Account Name:*"){(($_ -split "\:")[1]).trim()}}|Group-Object |select count,name
 
@@ -67,16 +73,17 @@ Then finally we found the groups who changed the privilages.
 
 ----------------------------------------------------------------------------------------------------------------------
 
-**1) remote computer event log**
+**2) remote computer event log**
 
 Now there is a new computer in this example. (local host:omer1 & remote computer:ESMA) We find security logs' at omer1 pc with ESMA.
 
 .\get_eventlog.ps1 -sunucu omer1 -log_cesidi security -zaman 60 -eventid 4624 
+
 We run the same code previous example. The diffrence is: we are in another computer(ESMA) and again we find the omer1's 4624 event id logs. And we save the output to test.txt file.
 
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/remote.pc.1.PNG)
 
-Then we repeat the previous code in previous example and we find 
+Then we repeat the previous code in previous example and we find logs. (test2.txt)
 
 
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/remote.pc.2.PNG)

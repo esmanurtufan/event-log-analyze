@@ -15,7 +15,7 @@ We are 2 examples of usage.
 ----------------------------------------------------------------------------------------------------------------------
 You are admin at your pc to run this code.
 
-**1) Localhost event log**
+**1) Localhost Event Log**
 
 (localhost name:omer1 & user:decoder) 
 
@@ -73,7 +73,7 @@ Then finally we found the groups who changed the privilages.
 
 ----------------------------------------------------------------------------------------------------------------------
 
-**2) remote computer event log**
+**2) Remote Computer Event Log**
 
 Now there is a new computer in this example. (local host:omer1 & remote computer:ESMA) We find security logs' at omer1 pc with ESMA.
 
@@ -83,7 +83,7 @@ We run the same code previous example. The diffrence is: we are in another compu
 
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/remote.pc.1.PNG)
 
-Then we repeat the previous code in previous example and we find logs. (test2.txt)
+Then we repeat the previous code in previous example. We find logs and saved it. (test2.txt)
 
 
 ![alt text](https://github.com/esmanurtufan/event-log-analyze/blob/master/screenshots/remote.pc.2.PNG)

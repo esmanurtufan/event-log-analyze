@@ -7,3 +7,5 @@ https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx
  Before the specify event id you should decide what you need. You can analyze the "An account was successfully logged on" or "Special privileges assigned to new logon".. etc.
  
  
+https://github.com/esmanurtufan/event-log-analyze/blob/master/decoder%204624.PNG
+
